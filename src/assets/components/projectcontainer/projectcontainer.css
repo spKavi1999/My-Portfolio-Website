@@ -1,0 +1,10 @@
+.active-btn:hover{
+    background-color: orangered;
+    color:white;
+    border: 1px solid orangered;
+}
+.inactive-btn:hover{
+    background-color: transparent;
+    color: orangered;
+    border: 1px solid orangered;
+}
