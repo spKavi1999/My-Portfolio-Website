@@ -5,6 +5,7 @@ import { Row, Col,Card, Modal,Button } from 'react-bootstrap';
 import './projectcontainer.css'
 import mymini from '../../mymini.png';
 import project from '../../project1image.avif'
+import calcpic from  '../../calcpic1.png'
 
 
 
@@ -15,8 +16,16 @@ const Projectcontainer = () => {
 
   const [miniProjects,setMiniProjects]=useState([{
     name:"SignUp&Login",description:"Simple Sign Up and Login authentication system",image:mymini,
-    sourcecode:"https://github.com/spKavi1999/SignUP_Login",
-  }])
+    sourcecode:"https://github.com/spKavi1999/Sign_Up-Login",
+    viewlink:"https://kavi99-signup-login.netlify.app/"
+  },
+  {
+    name:"Calculator",description:"A simple calculator app for performing basic arithmetic operations with an intuitive and responsive interface.",
+    image:calcpic,
+    sourcecode:"https://github.com/spKavi1999/Calculator",
+    viewlink:"https://kavi-calculator.netlify.app/"
+  }
+])
   
  
 
@@ -68,7 +77,7 @@ const Projectcontainer = () => {
                   <Card.Footer>
                     <div className='d-flex justify-content-center gap-1'>
                     <Button className='bg-success text-white' onClick={()=>window.open(mini.sourcecode,'_blank')}>Source Code</Button>
-                    <Button className='bg-primary text-white'>View Projects</Button>
+                    <Button className='bg-primary text-white' onClick={()=>window.open(mini.viewlink,'_blank')}>View Projects</Button>
                     
                     </div>
                   </Card.Footer>

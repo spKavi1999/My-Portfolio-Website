@@ -13,6 +13,7 @@ const Header = () => {
   const handleClose = () => setView(false);
 
   return (
+    
     <div className="header">
       <div className="header_left">
         <h1>Develop<span>er</span></h1>

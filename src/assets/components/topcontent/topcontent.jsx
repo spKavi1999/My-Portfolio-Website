@@ -25,7 +25,7 @@ const topcontent = () => {
         </p>
         
         {/* Updated Download CV Button */}
-        <a href="/Kavi_Sakkaravarthi_Resume.pdf" download>
+        <a href="/Kavi_Sakkaravarthi_Resume2025.pdf" download>
           <button className='topcontent_downloadbutton'>Download CV</button>
         </a>
 
