@@ -6,6 +6,7 @@ import './projectcontainer.css'
 import mymini from '../../mymini.png';
 import project from '../../project1image.avif'
 import calcpic from  '../../calcpic1.png'
+import myportfolio from '../../myportfolio.png'
 
 
 
@@ -26,6 +27,13 @@ const Projectcontainer = () => {
     viewlink:"https://kavi-calculator.netlify.app/"
   }
 ])
+
+const [projects,setProjects]=useState([{
+  name:"My_Portfolio",description:"A personal portfolio showcasing my front-end development skills, projects, and resume",image:myportfolio,
+    sourcecode:"https://github.com/spKavi1999/My-Portfolio-Website",
+    viewlink:"https://kavi99-my-portfolio-website.netlify.app/"
+
+}])
   
  
 
@@ -42,7 +50,7 @@ const Projectcontainer = () => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat' }}> 
-      <div className='d-flex justify-content-center gap-2'>
+      <div className='d-flex justify-content-center gap-2 mb-5'>
         <div className='flex-1 '>
         <Button style={{backgroundColor:active==='my projects'?'orangered':'transparent',color:active==='my projects'?'white':'orangered',border:'1px solid orangered'}}
         onClick={()=>setActive('my projects')} className='btn-block w-100'>My Projects
@@ -57,19 +65,58 @@ const Projectcontainer = () => {
       <div>
         {active==='my projects' && (
           <div>
-          <h2 className='text-light'>My Projects Content</h2>
+         
+          <Row>
+            {projects.map((project,index)=>(
+               <Col key={index} sm={12} md={6} lg={4} className='d-flex'>
+               <Card className='flex-fill'>
+               <Card.Img
+  variant="top"
+  style={{
+    width: '100%',       // optionally use a fixed value like '200px'
+    height: 'auto',      // maintains aspect ratio
+    objectFit: 'cover',  // use camelCase instead of hyphen
+  }}
+  src={project.image}
+/>
+                 <Card.Body className='text-center'>
+                    <Card.Title>{project.name}</Card.Title>
+                    <Card.Text>{project.description}</Card.Text>
+                 </Card.Body>
+                 <Card.Footer>
+                   <div className='d-flex justify-content-center gap-1'>
+                   <Button className='bg-success text-white' onClick={()=>window.open(project.sourcecode,'_blank')}>Source Code</Button>
+                   <Button className='bg-primary text-white' onClick={()=>window.open(project.viewlink,'_blank')}>View Project</Button>
+                   
+                   </div>
+                 </Card.Footer>
+               </Card>
+             </Col>
+
+            ))}
+
+          </Row>
 
         </div>
         )}
         {active==='my mini projects'&& (
           <div>
           {/* Your content here */}
-          <h2 className='text-light'>My mini Projects Content</h2>
+        
           <Row>
             { miniProjects.map((mini,index)=>(
-              <Col key={index} sm={12} md={6} lg={4}>
-                <Card>
-                  <Card.Img variant='top' src={mini.image}/>
+              <Col key={index} sm={12} md={6} lg={4}
+              className='d-flex'>
+                <Card className='flex-fill'>
+                <Card.Img
+  variant="top"
+  style={{
+    width: '100%',       // optionally use a fixed value like '200px'
+    height: 'auto',      // maintains aspect ratio
+    objectFit: 'cover',  // use camelCase instead of hyphen
+  }}
+  src={mini.image}
+/>
                   <Card.Body className='text-center'>
                      <Card.Title>{mini.name}</Card.Title>
                      <Card.Text>{mini.description}</Card.Text>
@@ -77,7 +124,7 @@ const Projectcontainer = () => {
                   <Card.Footer>
                     <div className='d-flex justify-content-center gap-1'>
                     <Button className='bg-success text-white' onClick={()=>window.open(mini.sourcecode,'_blank')}>Source Code</Button>
-                    <Button className='bg-primary text-white' onClick={()=>window.open(mini.viewlink,'_blank')}>View Projects</Button>
+                    <Button className='bg-primary text-white' onClick={()=>window.open(mini.viewlink,'_blank')}>View Project</Button>
                     
                     </div>
                   </Card.Footer>
@@ -87,7 +134,9 @@ const Projectcontainer = () => {
 
           </Row>
         </div>
-        )}
+        )
+          
+        }
       </div>
      
      </div>
